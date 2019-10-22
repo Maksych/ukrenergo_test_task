@@ -4,6 +4,8 @@ from apps.tags.models import PageTags
 
 from apps.tags.serializers import PageTagsSerializer
 
+from apps.tags.tasks import parse_html_from_url
+
 
 class PageTagsAPIView(generics.CreateAPIView):
     queryset = PageTags.objects.all()
@@ -11,5 +13,6 @@ class PageTagsAPIView(generics.CreateAPIView):
     authentication_classes = []
 
     def perform_create(self, serializer):
-        serializer.validated_data['data'] = ''
+        task = parse_html_from_url.delay(serializer.validated_data)
+        task.join()
         super().perform_create(serializer)
