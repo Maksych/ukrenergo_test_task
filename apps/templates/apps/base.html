@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Tags Stats | Maksym Sichkaruk</title>
+    {% include 'apps/styles.html' %}
+</head>
+<body>
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+    {% include 'apps/header.html' %}
+
+    {% block body %}
+    {% endblock %}
+
+    {% include 'apps/footer.html' %}
+
+</div>
+
+{% include 'apps/scripts.html' %}
+
+</body>
+</html>
