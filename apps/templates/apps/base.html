@@ -2,7 +2,7 @@
 <html lang="ua">
 <head>
     <meta charset="UTF-8">
-    <title>HTML Tags Stats | Maksym Sichkaruk</title>
+    <title>HTML Tag Counter | Maksym Sichkaruk</title>
     {% include 'apps/styles.html' %}
     <script>
         const tagsUrl = "{% url 'tags' %}";
@@ -10,16 +10,8 @@
 </head>
 <body>
 
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-
-    {% include 'apps/header.html' %}
-
-    {% block body %}
-    {% endblock %}
-
-    {% include 'apps/footer.html' %}
-
-</div>
+{% block body %}
+{% endblock %}
 
 {% include 'apps/scripts.html' %}
 

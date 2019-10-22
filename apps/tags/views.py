@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, exceptions
 
 from apps.tags.models import PageTags
 
@@ -13,6 +13,23 @@ class PageTagsAPIView(generics.CreateAPIView):
     authentication_classes = []
 
     def perform_create(self, serializer):
-        task = parse_html_from_url.delay(serializer.validated_data)
-        task.join()
-        super().perform_create(serializer)
+        """
+        Delay parse_html_from_url task
+        Waiting this task
+        get result form task
+        Updating data and save
+
+        :param serializer: PageTagsSerializer
+        :return: Response or Exception
+        """
+
+        url = serializer.validated_data['url']
+
+        task = parse_html_from_url.delay(url)
+
+        result = task.wait()
+
+        if result:
+            serializer.validated_data['data'] = result
+        else:
+            raise exceptions.ParseError(f'Problem with getting response from {url}')
