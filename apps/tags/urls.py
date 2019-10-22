@@ -1,3 +1,7 @@
 from django.urls import path
 
-urlpatterns = []
+from apps.tags.views import PageTagsAPIView
+
+urlpatterns = [
+    path('', PageTagsAPIView.as_view(), name='tags'),
+]

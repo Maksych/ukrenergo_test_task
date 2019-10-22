@@ -1,6 +1,7 @@
 {% extends 'apps/base.html' %}
 
 {% block body %}
+    {% csrf_token %}
     <main role="main" class="inner cover" id="tag-parser">
     </main>
 {% endblock %}
