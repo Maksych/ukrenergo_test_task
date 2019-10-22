@@ -102,3 +102,13 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# PyCharm
+.idea/
+
+# Django
+**/migrations/*
+!**/migrations/__init__.py
+
+# ukrenergo_test_task
+!apps/static/apps/lib/

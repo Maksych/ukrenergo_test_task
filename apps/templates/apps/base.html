@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Tag Counter | Maksym Sichkaruk</title>
+    {% include 'apps/styles.html' %}
+    <script>
+        const tagsUrl = "{% url 'tags' %}";
+    </script>
+</head>
+<body>
+
+{% block body %}
+{% endblock %}
+
+{% include 'apps/scripts.html' %}
+
+</body>
+</html>
