@@ -29,7 +29,7 @@ class PageTagsAPIView(generics.CreateAPIView):
 
         result = task.wait()
 
-        if result:
+        if result is not None:
             serializer.validated_data['data'] = result
         else:
             raise exceptions.ParseError(f'Problem with getting response from {url}')
