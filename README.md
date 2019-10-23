@@ -5,7 +5,7 @@
 ```bash
 git clone https://github.com/Maksych/ukrenergo_test_task.git
 cd ukrenergo_test_task
-python -m venv venv
+python3.8 -m venv venv
 . venv/bin/activate
 python manage.py makemigrations
 python manage.py migrate
