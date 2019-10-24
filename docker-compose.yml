@@ -3,11 +3,11 @@ version: '3'
 services:
 
   nginx:
-    image: nginx
+    image: nginx:alpine
     ports:
       - "8000:8000"
     volumes:
-      - ./src:/src
+      - .:/code
       - ./config/nginx:/etc/nginx/conf.d
     depends_on:
       - web
@@ -24,9 +24,9 @@ services:
       - redis
 
   db:
-    image: postgres
+    image: postgres:alpine
 
   redis:
-    image: redis
+    image: redis:alpine
     ports:
       - '6379:6379'
